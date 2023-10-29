@@ -1,0 +1,52 @@
+/* .search-box{
+  border-top-left-radius: 10% !important;
+  border-bottom-left-radius: 10% !important;
+} */
+.search-button{
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border: 1px solid #dcdcdc;
+}
+
+@media only screen and (max-width: 576px) {
+  .search-form{
+    width: 75%;
+  }
+}
+
+.independent-scroll{
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.fontsize-smaller{
+  font-size: smaller;
+}
+
+.aspect-ratio-16-9{
+  aspect-ratio: 16/9;
+}
+
+.artist-name{
+ font-weight: 600;
+}
+.artist-subscribers{
+  font-size: small;
+}
+
+.subscribe-button{
+  font-size: small;
+  max-height: 50px;
+}
+.video-description{
+  background-color: #e9e9ed;
+}
+
+/* .rounded-left{
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+.rounded-right{
+  border-top-right-radius: 40%;
+  border-bottom-right-radius: 40%;
+} */
