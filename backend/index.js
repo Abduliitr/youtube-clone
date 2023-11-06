@@ -9,13 +9,15 @@ import { videoRouter } from './routes/videoRouter.js'
 
 const app = express();
 app.use(express.json());
-app.unsubscribe(cors());
+app.use(cors());
 
 const __dirname = path.resolve()
 dotenv.config({path:path.resolve(__dirname , '.env')}) 
 
 const PORT = process.env.PORT || '5001';
-const DBURI = process.env.DBURI || "mongodb://localhost:27017/youtubeclone"
+// const DBURI = process.env.DBURI || "mongodb://localhost:27017/youtubeclone"
+const DBURI = "mongodb+srv://youtubeclone:1234@cluster0.5ofd4si.mongodb.net/youtubeclone_yourrollnumber"
+// mongodb+srv://youtubeclone:1234@cluster0.5ofd4si.mongodb.net/
 
 mongoose.connect(DBURI)
 .then(() => {console.log("Connected to DB : " + DBURI)})

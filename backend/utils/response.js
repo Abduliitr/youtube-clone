@@ -8,8 +8,7 @@ export const createResponse = (message, token, success = true) => {
 
 export const createErrorResponse = (error, success = false) => {
     return {
-        errorMessage: error.message,
-        errorCode: error.errorCode,
+        message: error.message,
         success
     };
 }

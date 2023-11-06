@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import {useDispatch} from 'react-redux';
 
 import youtubeLogo from '../assets/images/yt-logo.jpeg'
 import youtubeLogoMobile from '../assets/images/yt-logo-mobile.png'
@@ -7,8 +8,13 @@ import profilePicture from '../assets/images/profile.png'
 import search from '../assets/images/search.svg'
 import upload from '../assets/images/upload.svg'
 import notification from '../assets/images/notification.svg'
+import { login } from '../redux/action';
 
 export default function Header() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(login('abd1@gmail.com', '12345678'))
+  }, [])
   return (
     <div className='position-sticky top-0 bg-light h-14 d-flex align-items-center justify-content-between'>
       <div id='logo' className='h-5 px-2'>

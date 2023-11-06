@@ -3,8 +3,8 @@
 Steps:
 
 npm init
-npm i express mysql dotenv bcrypt jsonwebtoken
-npm i mongoose cors
+npm i express dotenv mongoose cors
+npm i bcrypt jsonwebtoken
 npm i nodemon --save
 "start": "nodemon app.js"
 "type": "module"

@@ -7,8 +7,8 @@ import { createErrorResponse, createResponse } from "../utils/response.js";
 
 export const videoRouter = express.Router();
 
-videoRouter.get('/videos', authMiddleware, videoFetchHandler);
-videoRouter.get('/video/:id', authMiddleware, getVideo);
+videoRouter.get('/videos', videoFetchHandler);
+videoRouter.get('/video/:id', getVideo);
 
 videoRouter.post('/video', authMiddleware, videoUploadHandler);
 videoRouter.post('/video/:id/like', authMiddleware, likeUnlikeAvideo);
@@ -21,27 +21,27 @@ async function videoFetchHandler(req, res){
     // get subscribed videos
     try{ 
         const videos = [];
-        const user = await User.findById(req.user._id);
+        // const user = await User.findById(req.user._id);
 
-        for(let i = 0; i < user.subscribedTo.length; i++){
-            const subscribedUsers = await User.findById(user.subscribedTo[i]._id);
-            for(let j = 0; j<subscribedUsers.videos.length; j++){
-                videos.push(subscribedUsers.videos[j]);
-            }
-        }
+        // for(let i = 0; i < user.subscribedTo.length; i++){
+        //     const subscribedUsers = await User.findById(user.subscribedTo[i]._id);
+        //     for(let j = 0; j<subscribedUsers.videos.length; j++){
+        //         videos.push(subscribedUsers.videos[j]);
+        //     }
+        // }
 
         const len = videos.length;
         let videosFromdb = await Video.find();
         // filter out above entered videos
-        videosFromdb = videosFromdb.filter((video) => {
-            return !videos.includes(video);
-        })
+        // videosFromdb = videosFromdb.filter((video) => {
+        //     return !videos.includes(video);
+        // })
 
         for(let i = 0; i< Math.min( videosFromdb.length, 20 - len) ; i++){
             videos.push(videosFromdb[i]);
         }
 
-        console.log(`Fetched ${videos.length} videos for user ${req.user.email}`);
+        console.log(`Fetched ${videos.length} videos`);
         
         return res.send(createResponse(videos));
     } catch (error) {

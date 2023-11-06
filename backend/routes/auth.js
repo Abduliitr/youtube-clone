@@ -7,9 +7,9 @@ import { createResponse, createErrorResponse } from '../utils/response.js';
 import { createToken, invalidateToken } from '../utils/jwt.js';
 
 export const authRouter = express.Router();
-authRouter.post('/signup', signUp);
-authRouter.post('/login', logIn);
-authRouter.post('/logout', logout);
+authRouter.post('/auth/signup', signUp);
+authRouter.post('/auth/login', logIn);
+authRouter.post('/auth/logout', logout);
 
 export default authRouter;
 
